@@ -6,7 +6,7 @@ Terms Lens is a Manifest V3 Chrome extension for reviewing visible terms of serv
 
 ## Quick start
 
-Requirements: Node.js 22.22+ or 24+, npm 11+.
+Requirements: Node.js 22.22+ or 24+, npm 11+, and Google Chrome for the Cypress demo.
 
 ```powershell
 npm install
@@ -24,7 +24,7 @@ Alibaba Page Agent's demo LLM is only for testing and is not configured or used.
 npm run demo:video
 ```
 
-Cypress runs the local, deterministic demo in Electron and records `artifacts/videos/terms-demo.cy.ts.mp4`. The demo does not call a model or send data to a provider. It shows a supported risk citation, then an unsupported quotation being rejected and described as uncertainty.
+Cypress runs the local, deterministic demo in headless Chrome and records `artifacts/videos/terms-demo.cy.ts.mp4` (about 29 seconds). The runner starts and closes Vite directly, so it does not depend on Windows-only process utilities. The demo does not call a model or send data to a provider. It shows a supported risk citation, then an unsupported quotation being rejected and described as uncertainty.
 
 ## Architecture
 
