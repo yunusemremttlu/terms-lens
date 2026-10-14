@@ -1,0 +1,36 @@
+{
+  "name": "terms-lens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Evidence-backed Turkish risk review for terms, privacy policies, and subscriptions.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && vite build --config vite.content.config.ts && node scripts/copy-extension-assets.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "eval": "tsx scripts/run-eval.ts",
+    "cy:run": "cypress run --browser electron",
+    "demo:video": "start-server-and-test dev http://127.0.0.1:5173/demo.html cy:run"
+  },
+  "dependencies": {
+    "@page-agent/core": "1.12.4",
+    "@page-agent/page-controller": "1.12.4",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "page-agent": "1.12.4",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.19.2",
+    "cypress": "^15.7.0",
+    "linkedom": "^0.18.12",
+    "start-server-and-test": "^2.1.3",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vitest": "^4.1.11"
+  }
+}

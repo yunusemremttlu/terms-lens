@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Terms Lens — LLM Ayarları</title>
+    <link rel="stylesheet" href="/src/ui/options.css">
+  </head>
+  <body>
+    <main>
+      <h1>LLM ayarları</h1>
+      <p>Page Agent, ana sayfa/ana makale içindeki görünür metni ve yalnızca sitenin alan adını seçtiğiniz modele gönderir. Sayfa başlığı, URL yolu, sorgu parametreleri, form değerleri ve çerezler gönderilmez. API anahtarınız yalnızca bu Chrome profilinin yerel uzantı depolamasında kalır.</p>
+      <form id="settings">
+        <label for="provider">Sağlayıcı</label>
+        <select id="provider">
+          <option value="openai-compatible">OpenAI uyumlu API (JEV / diğer özel uç nokta)</option>
+          <option value="alibaba">Alibaba DashScope / Qwen</option>
+          <option value="openai">OpenAI</option>
+        </select>
+        <label for="apiBaseUrl">API base URL</label>
+        <input id="apiBaseUrl" type="url" placeholder="https://api.openai.com/v1" required>
+        <label for="model">Model adı</label>
+        <input id="model" type="text" placeholder="Örn. gpt-4.1-mini / qwen-plus" required>
+        <label for="apiKey">API anahtarı</label>
+        <input id="apiKey" type="password" autocomplete="new-password" placeholder="Kaydedilmiş anahtar gösterilmez">
+        <label class="check"><input id="clearKey" type="checkbox"> Kayıtlı anahtarı sil</label>
+        <p id="keyStatus" class="hint">Anahtar ayara yazılmaz ve sayfaya eklenmez.</p>
+        <button type="submit">Kaydet ve uç nokta iznini ver</button>
+        <output id="status" role="status"></output>
+      </form>
+      <section>
+        <h2>Veri ve güvenlik</h2>
+        <ul>
+          <li>Sayfanın görünür ana belge metni ve alan adı seçtiğiniz model uç noktasına gönderilir.</li>
+          <li>Form değerleri, parolalar ve çerezler toplanmaz.</li>
+          <li>Page Agent’in tıklama, yazma, kaydırma ve JavaScript çalıştırma araçları kapalıdır.</li>
+          <li>Modelin her risk maddesi için metindeki birebir alıntı zorunludur; bulunamazsa madde çıkarılır.</li>
+          <li>Modelin verdiği puan kullanılmaz. Puan, doğrulanmış maddelerin önem ağırlıklarıyla yerelde hesaplanır.</li>
+        </ul>
+        <p class="legal"><strong>Bu araç hukuki tavsiye vermez.</strong> Eksik, yanlış veya güncelliğini yitirmiş sonuçlar olabilir; sözleşmenin tamamını okuyun ve gerektiğinde hukuk uzmanına danışın.</p>
+        <p>Page Agent’in demo LLM’i yalnızca deneme amaçlıdır. Kendi ücretli/kurumsal anahtarınızı kullanın.</p>
+      </section>
+    </main>
+    <script type="module" src="/src/ui/options.ts"></script>
+  </body>
+</html>
