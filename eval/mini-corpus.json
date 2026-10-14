@@ -1,0 +1,46 @@
+{
+  "reviewDate": "2026-10-14",
+  "policy": "One short, publicly accessible excerpt per official terms page; gold labels are reviewer judgments, not legal findings.",
+  "cases": [
+    {
+      "id": "google-content-license",
+      "company": "Google",
+      "url": "https://policies.google.com/terms",
+      "goldQuote": "This license allows Google to: host, reproduce, distribute, communicate, and use your content",
+      "expectedCategories": ["content_license"],
+      "goldNote": "Broad content-use grant is worth surfacing; context says the user retains ownership and the license is needed to operate services."
+    },
+    {
+      "id": "spotify-service-changes",
+      "company": "Spotify",
+      "url": "https://www.spotify.com/us/legal/end-user-agreement/",
+      "goldQuote": "Spotify reserves the right to change our Spotify Service offerings and their availability from time to time, without notice or liability to you.",
+      "expectedCategories": ["unilateral_change"],
+      "goldNote": "Unannounced service changes and express no-liability language are material to service continuity."
+    },
+    {
+      "id": "apple-auto-renewal",
+      "company": "Apple",
+      "url": "https://www.apple.com/legal/internet-services/itunes/us/terms.html",
+      "goldQuote": "Subscriptions automatically renew until cancelled in the Manage Subscriptions section of your account settings.",
+      "expectedCategories": ["renewal"],
+      "goldNote": "Renewal continues until the customer cancels through account settings."
+    },
+    {
+      "id": "mozilla-termination",
+      "company": "Mozilla",
+      "url": "https://www.mozilla.org/en-US/about/legal/terms/services/",
+      "goldQuote": "We may suspend or terminate your access to the Services at any time for any reason",
+      "expectedCategories": ["account_termination"],
+      "goldNote": "Broad discretion to suspend or terminate access merits a plain-language explanation."
+    },
+    {
+      "id": "microsoft-repeat-infringer",
+      "company": "Microsoft",
+      "url": "https://www.microsoft.com/en-us/servicesagreement",
+      "goldQuote": "Microsoft may also disable or terminate accounts of users of Microsoft services who may be repeat infringers.",
+      "expectedCategories": [],
+      "goldNote": "Scoped repeat-infringer enforcement in an intellectual-property notice section should not be misreported as an unqualified general account-termination risk."
+    }
+  ]
+}
