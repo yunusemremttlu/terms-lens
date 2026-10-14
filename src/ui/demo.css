@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  background: #f4f7fb;
+  color: #17202a;
+  font: 15px/1.55 system-ui, sans-serif;
+}
+
+main {
+  max-width: 820px;
+  margin: 38px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px #15243a16;
+}
+
+.eyebrow {
+  color: #175cd3;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .08em;
+}
+
+h1 {
+  margin: 3px 0;
+  font-size: 30px;
+}
+
+article {
+  margin: 24px 0 14px;
+  padding: 20px;
+  border: 1px solid #d5dce5;
+  border-radius: 9px;
+  background: #fff;
+}
+
+article p {
+  margin: 12px 0;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 6px;
+  background: #175cd3;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #eef4ff;
+  color: #1849a9;
+}
+
+#report {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #d5dce5;
+  border-radius: 9px;
+}
+
+.score {
+  margin: 4px 0;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.risk {
+  margin-top: 12px;
+  padding: 13px;
+  border: 1px solid #e1e7ef;
+  border-radius: 7px;
+}
+
+.risk h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+blockquote {
+  margin: 8px 0;
+  padding: 8px 11px;
+  border-left: 3px solid #175cd3;
+  background: #f5f8ff;
+}
+
+.uncertainty {
+  color: #9a3412;
+  font-weight: 650;
+}
+
+.legal {
+  margin-top: 18px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #fff5da;
+  font-size: 13px;
+}
+
+.empty {
+  color: #667085;
+}
