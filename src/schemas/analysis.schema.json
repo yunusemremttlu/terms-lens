@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Terms Lens model analysis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["documentType", "summary", "risks", "uncertainty"],
+  "properties": {
+    "documentType": {
+      "type": "string",
+      "enum": ["terms", "privacy", "subscription", "mixed", "unknown"]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 600,
+      "description": "Sade Türkçe özet. Kaynağın desteklemediği olguları ileri sürme."
+    },
+    "uncertainty": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 400,
+      "description": "Metin kapsamı veya yorum konusunda emin olunmayan noktaları sade Türkçe açıkla."
+    },
+    "risks": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category", "severity", "quote", "explanation", "action"],
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "renewal",
+              "cancellation",
+              "price_change",
+              "data_use",
+              "data_sharing",
+              "data_transfer",
+              "arbitration",
+              "liability",
+              "unilateral_change",
+              "content_license",
+              "account_termination",
+              "other"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
+          },
+          "quote": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 500,
+            "description": "Kaynak metinden aynı kelimeler ve noktalama ile kesintisiz, birebir alıntı."
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500,
+            "description": "Riskin neden önemli olduğunu sade Türkçe açıkla."
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 250
+          }
+        }
+      }
+    }
+  }
+}

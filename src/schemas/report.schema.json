@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Terms Lens evidence-backed report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType",
+    "riskScore",
+    "summary",
+    "risks",
+    "uncertainty",
+    "citationRejections",
+    "generatedAt"
+  ],
+  "properties": {
+    "documentType": {
+      "type": "string",
+      "enum": ["terms", "privacy", "subscription", "mixed", "unknown"]
+    },
+    "riskScore": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 600
+    },
+    "uncertainty": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 400
+    },
+    "risks": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category", "severity", "quote", "explanation", "action"],
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "renewal",
+              "cancellation",
+              "price_change",
+              "data_use",
+              "data_sharing",
+              "data_transfer",
+              "arbitration",
+              "liability",
+              "unilateral_change",
+              "content_license",
+              "account_termination",
+              "other"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
+          },
+          "quote": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 500
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 250
+          }
+        }
+      }
+    },
+    "citationRejections": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
