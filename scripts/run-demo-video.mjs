@@ -1,4 +1,5 @@
-import cypress from "cypress";
+import { spawn } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import { createServer } from "vite";
 
 const server = await createServer({
@@ -12,18 +13,19 @@ const server = await createServer({
 await server.listen();
 
 try {
-  const result = await cypress.run({
-    browser: "chrome",
-    headless: true,
-    project: process.cwd()
+  const cli = fileURLToPath(new URL("../node_modules/cypress/bin/cypress", import.meta.url));
+  const exitCode = await new Promise((resolve, reject) => {
+    const child = spawn(
+      process.execPath,
+      [cli, "run", "--browser", "chrome", "--headless"],
+      { cwd: process.cwd(), stdio: "inherit", windowsHide: true }
+    );
+
+    child.once("error", reject);
+    child.once("close", (code) => resolve(code ?? 1));
   });
 
-  if ("status" in result) {
-    console.error(result.message);
-    process.exitCode = 1;
-  } else if (result.totalFailed > 0) {
-    process.exitCode = 1;
-  }
+  process.exitCode = exitCode;
 } catch (error) {
   console.error("Cypress demo failed to run:", error);
   process.exitCode = 1;
